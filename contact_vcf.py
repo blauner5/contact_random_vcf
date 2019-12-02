@@ -29,11 +29,9 @@ def randomString(stringLength=10):
 
 def generate_street(tipo):
 	if tipo == 3:
-		alfabeto_corea = ["하", "악", "안", "알", "암", "압", "앙", "앞", "애", "액", "앵", "야", "얀", "약", "양", "얘", "어", "억", "언", "얼", "엄", "업", "엉", "에", "여", "역", "연","열", "염", "엽", "영", "예", "오", "옥", "온", "올", "옴", "옹", "와", "완", "왈", "왕", "왜", "외", "왼", "욕", "요", "용", "우", "욱", "운", "울", "움", "웅", "워", "원", "월", "유", "육", "윤", "율", "융", "윷", "으", "은", "을", "음", "읍", "응", "의", "이", "익", "인", "일", "임", "입", "잉","잎"]
-		alfabeto2_corea = ["하", "악", "안", "알", "암", "압", "앙", "앞", "애", "액", "앵", "야", "얀", "약", "양", "얘", "어", "억", "언", "얼", "엄", "업", "엉", "에", "여", "역", "연","열", "염", "엽", "영", "예", "오", "옥", "온", "올", "옴", "옹", "와", "완", "왈", "왕", "왜", "외", "왼", "욕", "요", "용", "우", "욱", "운", "울", "움", "웅", "워", "원", "월", "유", "육", "윤", "율", "융", "윷", "으", "은", "을", "음", "읍", "응", "의", "이", "익", "인", "일", "임", "입", "잉","잎"]
-		i = random.choice(alfabeto_corea)
-		j = random.choice(alfabeto2_corea)
-		z = random.choice(alfabeto2_corea)
+		i = random.choice(char_korea)
+		j = random.choice(char_korea)
+		z = random.choice(char_korea)
 		via = i+j+z
 		via2 = j+i+z
 		via3 = j+i+z+z+z+i+i
@@ -42,10 +40,9 @@ def generate_street(tipo):
 		cap = random.randint(00000, 99999)
 		naz = z+i+i+j+z+j+j+z
 	elif tipo == 1:
-		alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-		i = random.choice(alfabeto)
-		j = random.choice(alfabeto)
-		z = random.choice(alfabeto)
+		i = random.choice(char_ita)
+		j = random.choice(char_ita)
+		z = random.choice(char_ita)
 		via = i+j+z
 		via2 = j+i+z
 		via3 = j+i+z+z+z+i+i
@@ -54,10 +51,9 @@ def generate_street(tipo):
 		cap = random.randint(00000, 99999)
 		naz = z+i+i+j+z+j+j+z
 	elif tipo == 2:
-		alfabeto2 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-		i = random.choice(alfabeto2)
-		j = random.choice(alfabeto2)
-		z = random.choice(alfabeto2)
+		i = random.choice(char_ita_upper)
+		j = random.choice(char_ita_upper)
+		z = random.choice(char_ita_upper)
 		via = i+j+z
 		via2 = j+i+z
 		via3 = j+i+z+z+z+i+i
@@ -66,11 +62,9 @@ def generate_street(tipo):
 		cap = random.randint(00000, 99999)
 		naz = z+i+i+j+z+j+j+z
 	elif tipo == 4:
-		alfabeto_japan = ["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "が", "ぎ", "ぐ", "げ", "ご", "さ", "し", "す", "せ", "そ", "ざ", "じ", "ず", "ぜ", "ぞ", "た", "ち", "つ", "て", "と", "だ", "ぢ", "づ", "で", "ど", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "わ", "ゐ", "ゑ", "を"]
-		alfabeto2_japan = ["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "が", "ぎ", "ぐ", "げ", "ご", "さ", "し", "す", "せ", "そ", "ざ", "じ", "ず", "ぜ", "ぞ", "た", "ち", "つ", "て", "と", "だ", "ぢ", "づ", "で", "ど", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "わ", "ゐ", "ゑ", "を"]
-		i = random.choice(alfabeto_japan)
-		j = random.choice(alfabeto2_japan)
-		z = random.choice(alfabeto_japan)
+		i = random.choice(char_japan)
+		j = random.choice(char_japan)
+		z = random.choice(char_japan)
 		via = i+j+z
 		via2 = j+i+z
 		via3 = j+i+z+z+z+i+i
@@ -79,11 +73,9 @@ def generate_street(tipo):
 		cap = random.randint(00000, 99999)
 		naz = z+i+i+j+z+j+j+z
 	else:
-		alfabeto_cinese = ["阿", "贝", "色", "德", "饿", "艾", "弗", "日", "阿", "什", "伊", "鸡", "卡", "艾", "勒", "艾", "马", "艾", "娜", "哦", "佩", "苦", "艾", "和", "丝", "特", "玉", "维", "独", "布", "勒", "维", "伊", "克", "斯", "格", "黑", "克", "贼", "德"]
-		alfabeto2_cinese = ["阿", "贝", "色", "德", "饿", "艾", "弗", "日", "阿", "什", "伊", "鸡", "卡", "艾", "勒", "艾", "马", "艾", "娜", "哦", "佩", "苦", "艾", "和", "丝", "特", "玉", "维", "独", "布", "勒", "维", "伊", "克", "斯", "格", "黑", "克", "贼", "德"]
-		i = random.choice(alfabeto_cinese)
-		j = random.choice(alfabeto2_cinese)
-		z = random.choice(alfabeto_cinese)
+		i = random.choice(char_china)
+		j = random.choice(char_china)
+		z = random.choice(char_china)
 		via = i+j+z
 		via2 = j+i+z
 		via3 = j+i+z+z+z+i+i
