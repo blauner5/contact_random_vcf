@@ -89,7 +89,7 @@ def generate_street(tipo):
 
 def contatti_ita_lower():
 	f = open("contatti_ita_lower.vcf", "w+")
-	for i in range(0,800):
+	for i in range(0,1200):
 		n1 = random.choice(char_ita)
 		n2 = random.choice(char_ita)
 		n3 = random.choice(char_ita)
@@ -109,7 +109,7 @@ def contatti_ita_lower():
 		surname = c1+c2+c3+c4+c5+c6+c7
 		f.write("BEGIN:VCARD\r\n")
 		f.write("VERSION:3.0\r\n")
-		f.write("PRODID:-//Apple Inc.//iOS 12.4//EN\r\n")
+		f.write("PRODID:-//Apple Inc.//iOS 12.4//EN\r\n") #forse non necessario per creare il file vcf
 		tel = str(generate_number())
 		f.write("N:"+name+";"+surname+";;;\r\n")
 		f.write("FN:"+name+" "+surname+"\r\n")
@@ -136,16 +136,192 @@ def contatti_ita_lower():
 
 
 def contatti_ita_upper():
-	print("\nCreo i contatti upper ita.")
+	f = open("contatti_ita_lower.vcf", "w+")
+	for i in range(0,1200):
+		n1 = random.choice(char_ita_upper)
+		n2 = random.choice(char_ita_upper)
+		n3 = random.choice(char_ita_upper)
+		n4 = random.choice(char_ita_upper)
+		n5 = random.choice(char_ita_upper)
+		n6 = random.choice(char_ita_upper)
+		n7 = random.choice(char_ita_upper)
+		n8 = random.choice(char_ita_upper)
+		name = n1+n2+n3+n4+n5+n6+n7+n8
+		c1 = random.choice(char_ita_upper)
+		c2 = random.choice(char_ita_upper)
+		c3 = random.choice(char_ita_upper)
+		c4 = random.choice(char_ita_upper)
+		c5 = random.choice(char_ita_upper)
+		c6 = random.choice(char_ita_upper)
+		c7 = random.choice(char_ita_upper)
+		surname = c1+c2+c3+c4+c5+c6+c7
+		f.write("BEGIN:VCARD\r\n")
+		f.write("VERSION:3.0\r\n")
+		f.write("PRODID:-//Apple Inc.//iOS 12.4//EN\r\n") #forse non necessario per creare il file vcf
+		tel = str(generate_number())
+		f.write("N:"+name+";"+surname+";;;\r\n")
+		f.write("FN:"+name+" "+surname+"\r\n")
+		f.write("EMAIL;type=INTERNET;type=HOME;type=pref:"+name+"@"+surname+".it\r\n")
+		tel2 = str(generate_number())
+		via = generate_street(1)[0]
+		via2 = generate_street(1)[1]
+		via3 = generate_street(1)[2]
+		city = generate_street(1)[3]
+		city2 = generate_street(1)[4]
+		cap = str(generate_street(1)[5])
+		naz = generate_street(1)[6]
+		web = randomString(10)
+		f.write("TEL;type=WORK;type=VOICE:"+tel2[:3]+" "+tel2[-7:]+"\r\n")
+		f.write("item1.ADR;type=HOME;type=pref:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		f.write("item1.X-ABADR:it\r\n")
+		f.write("item2.ADR;type=WORK:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		f.write("item3.URL;type=pref:http://www."+web+".it\r\n")
+		f.write("item3.X-ABLabel:_$!<HomePage>!$_\r\n")
+		f.write("REV:2019-07-03T09:25:15Z\r\n")
+		f.write("END:VCARD\r\n")
+	f.close()
+	print("\nContatti ITA con lettere maiuscole creati.\n")
 
 def contatti_ita_mixed():
-	print("\nCreo contatti ita mixed.")
+	f = open("contatti_ita_lower.vcf", "w+")
+	for i in range(0,1200):
+		n1 = random.choice(char_ita_upper)
+		n2 = random.choice(char_ita)
+		n3 = random.choice(char_ita)
+		n4 = random.choice(char_ita)
+		n5 = random.choice(char_ita)
+		n6 = random.choice(char_ita)
+		n7 = random.choice(char_ita)
+		n8 = random.choice(char_ita)
+		name = n1+n2+n3+n4+n5+n6+n7+n8
+		c1 = random.choice(char_ita_upper)
+		c2 = random.choice(char_ita)
+		c3 = random.choice(char_ita)
+		c4 = random.choice(char_ita)
+		c5 = random.choice(char_ita)
+		c6 = random.choice(char_ita)
+		c7 = random.choice(char_ita)
+		surname = c1+c2+c3+c4+c5+c6+c7
+		f.write("BEGIN:VCARD\r\n")
+		f.write("VERSION:3.0\r\n")
+		f.write("PRODID:-//Apple Inc.//iOS 12.4//EN\r\n") #forse non necessario per creare il file vcf
+		tel = str(generate_number())
+		f.write("N:"+name+";"+surname+";;;\r\n")
+		f.write("FN:"+name+" "+surname+"\r\n")
+		f.write("EMAIL;type=INTERNET;type=HOME;type=pref:"+name+"@"+surname+".it\r\n")
+		tel2 = str(generate_number())
+		via = generate_street(1)[0]
+		via2 = generate_street(1)[1]
+		via3 = generate_street(1)[2]
+		city = generate_street(1)[3]
+		city2 = generate_street(1)[4]
+		cap = str(generate_street(1)[5])
+		naz = generate_street(1)[6]
+		web = randomString(10)
+		f.write("TEL;type=WORK;type=VOICE:"+tel2[:3]+" "+tel2[-7:]+"\r\n")
+		f.write("item1.ADR;type=HOME;type=pref:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		f.write("item1.X-ABADR:it\r\n")
+		f.write("item2.ADR;type=WORK:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		f.write("item3.URL;type=pref:http://www."+web+".it\r\n")
+		f.write("item3.X-ABLabel:_$!<HomePage>!$_\r\n")
+		f.write("REV:2019-07-03T09:25:15Z\r\n")
+		f.write("END:VCARD\r\n")
+	f.close()
+	print("\nContatti ITA con lettere mixed creati.\n")
 
 def contatti_china():
-	print("\nCreo contatti china.")
+	f = open("contatti_ita_lower.vcf", "w+")
+	for i in range(0,1200):
+		n1 = random.choice(char_china)
+		n2 = random.choice(char_china)
+		n3 = random.choice(char_china)
+		n4 = random.choice(char_china)
+		n5 = random.choice(char_china)
+		n6 = random.choice(char_china)
+		n7 = random.choice(char_china)
+		n8 = random.choice(char_china)
+		name = n1+n2+n3+n4+n5+n6+n7+n8
+		c1 = random.choice(char_china)
+		c2 = random.choice(char_china)
+		c3 = random.choice(char_china)
+		c4 = random.choice(char_china)
+		c5 = random.choice(char_china)
+		c6 = random.choice(char_china)
+		c7 = random.choice(char_china)
+		surname = c1+c2+c3+c4+c5+c6+c7
+		f.write("BEGIN:VCARD\r\n")
+		f.write("VERSION:3.0\r\n")
+		f.write("PRODID:-//Apple Inc.//iOS 12.4//EN\r\n") #forse non necessario per creare il file vcf
+		tel = str(generate_number())
+		f.write("N:"+name+";"+surname+";;;\r\n")
+		f.write("FN:"+name+" "+surname+"\r\n")
+		f.write("EMAIL;type=INTERNET;type=HOME;type=pref:"+name+"@"+surname+".it\r\n")
+		tel2 = str(generate_number())
+		via = generate_street(1)[0]
+		via2 = generate_street(1)[1]
+		via3 = generate_street(1)[2]
+		city = generate_street(1)[3]
+		city2 = generate_street(1)[4]
+		cap = str(generate_street(1)[5])
+		naz = generate_street(1)[6]
+		web = randomString(10)
+		f.write("TEL;type=WORK;type=VOICE:"+tel2[:3]+" "+tel2[-7:]+"\r\n")
+		f.write("item1.ADR;type=HOME;type=pref:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		f.write("item1.X-ABADR:it\r\n")
+		f.write("item2.ADR;type=WORK:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		f.write("item3.URL;type=pref:http://www."+web+".it\r\n")
+		f.write("item3.X-ABLabel:_$!<HomePage>!$_\r\n")
+		f.write("REV:2019-07-03T09:25:15Z\r\n")
+		f.write("END:VCARD\r\n")
+	f.close()
+	print("\nContatti China created.\n")
 
 def contatti_japan():
-	print("\nCreo contatti japan.")
+	f = open("contatti_ita_lower.vcf", "w+")
+	for i in range(0,1200):
+		n1 = random.choice(char_japan)
+		n2 = random.choice(char_japan)
+		n3 = random.choice(char_japan)
+		n4 = random.choice(char_japan)
+		n5 = random.choice(char_japan)
+		n6 = random.choice(char_japan)
+		n7 = random.choice(char_japan)
+		n8 = random.choice(char_japan)
+		name = n1+n2+n3+n4+n5+n6+n7+n8
+		c1 = random.choice(char_japan)
+		c2 = random.choice(char_japan)
+		c3 = random.choice(char_japan)
+		c4 = random.choice(char_japan)
+		c5 = random.choice(char_japan)
+		c6 = random.choice(char_japan)
+		c7 = random.choice(char_japan)
+		surname = c1+c2+c3+c4+c5+c6+c7
+		f.write("BEGIN:VCARD\r\n")
+		f.write("VERSION:3.0\r\n")
+		f.write("PRODID:-//Apple Inc.//iOS 12.4//EN\r\n") #forse non necessario per creare il file vcf
+		tel = str(generate_number())
+		f.write("N:"+name+";"+surname+";;;\r\n")
+		f.write("FN:"+name+" "+surname+"\r\n")
+		f.write("EMAIL;type=INTERNET;type=HOME;type=pref:"+name+"@"+surname+".it\r\n")
+		tel2 = str(generate_number())
+		via = generate_street(1)[0]
+		via2 = generate_street(1)[1]
+		via3 = generate_street(1)[2]
+		city = generate_street(1)[3]
+		city2 = generate_street(1)[4]
+		cap = str(generate_street(1)[5])
+		naz = generate_street(1)[6]
+		web = randomString(10)
+		f.write("TEL;type=WORK;type=VOICE:"+tel2[:3]+" "+tel2[-7:]+"\r\n")
+		f.write("item1.ADR;type=HOME;type=pref:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		f.write("item1.X-ABADR:it\r\n")
+		f.write("item2.ADR;type=WORK:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		f.write("item3.URL;type=pref:http://www."+web+".it\r\n")
+		f.write("item3.X-ABLabel:_$!<HomePage>!$_\r\n")
+		f.write("REV:2019-07-03T09:25:15Z\r\n")
+		f.write("END:VCARD\r\n")
+	f.close()
+	print("\nContatti Japan created.\n")
 
 def contatti_korea():
 	print("\nCreo contatti korea.")
