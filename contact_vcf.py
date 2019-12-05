@@ -332,11 +332,29 @@ def contatti_special():
 def contatti_special_mixed():
 	print("\nCreo contatti special mixed.")
 
+def contatti_upper_latin():
+	f = open("contatti_upper_latin.vcf", "w+")
+	for i in char_ita_upper:
+		for j in char_ita_upper:
+			name = i
+			surname =j
+			f.write("BEGIN:VCARD\r\n")
+			f.write("VERSION:3.0\r\n")
+			f.write("PRODID:-//Apple Inc.//iOS 12.4//EN\r\n") #forse non necessario per creare il file vcf
+			tel = str(generate_number())
+			f.write("N:"+name+";"+surname+";;;\r\n")
+			f.write("FN:"+name+" "+surname+"\r\n")
+			f.write("TEL;type=WORK;type=VOICE:"+tel2[:3]+" "+tel2[-7:]+"\r\n")
+			f.write("REV:2019-07-03T09:25:15Z\r\n")
+			f.write("END:VCARD\r\n")
+	f.close()
+	print("\nCreo contatti latin upper.")
+
 
 def menu():
 	while(1):
-		print("Programma che crea file con contatti VCF.")
-		a = input("1 - Ita lower char\n2 - Ita upper char\n3 - Ita mixed\n4 - China\n5- Japan\n6 - Korea\n7- Special Char\n8 - Special Char Mixed\nb - Exit\n")
+		print("This program create a VCF file for testing.")
+		a = input("1 - Ita lower char\n2 - Ita upper char\n3 - Ita mixed\n4 - China\n5- Japan\n6 - Korea\n7- Special Char\n8 - Special Char Mixed\n9 - Upper Latin Char\nb - Exit\n")
 		if a == "1":
 			contatti_ita_lower()
 		elif a == "2":
@@ -353,6 +371,8 @@ def menu():
 			contatti_special()
 		elif a == "8":
 			contatti_special_mixed()
+		elif a == "9":
+			contatti_upper_latin()
 		else:
 			print("Esco dal programma.")
 			exit()
