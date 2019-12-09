@@ -89,7 +89,8 @@ def generate_street(tipo):
 
 def contatti_ita_lower():
 	f = open("contatti_ita_lower.vcf", "w+")
-	for i in range(0,1200):
+	num_contact = int(input("Quanti contatti vuoi creare: "))
+	for i in range(1,num_contact+1):
 		n1 = random.choice(char_ita)
 		n2 = random.choice(char_ita)
 		n3 = random.choice(char_ita)
@@ -109,26 +110,26 @@ def contatti_ita_lower():
 		surname = c1+c2+c3+c4+c5+c6+c7
 		f.write("BEGIN:VCARD\r\n")
 		f.write("VERSION:3.0\r\n")
-		f.write("PRODID:-//Apple Inc.//iOS 12.4//EN\r\n") #forse non necessario per creare il file vcf
 		tel = str(generate_number())
 		f.write("N:"+name+";"+surname+";;;\r\n")
 		f.write("FN:"+name+" "+surname+"\r\n")
-		f.write("EMAIL;type=INTERNET;type=HOME;type=pref:"+name+"@"+surname+".it\r\n")
-		tel2 = str(generate_number())
-		via = generate_street(1)[0]
-		via2 = generate_street(1)[1]
-		via3 = generate_street(1)[2]
-		city = generate_street(1)[3]
-		city2 = generate_street(1)[4]
-		cap = str(generate_street(1)[5])
-		naz = generate_street(1)[6]
-		web = randomString(10)
-		f.write("TEL;type=WORK;type=VOICE:"+tel2[:3]+" "+tel2[-7:]+"\r\n")
-		f.write("item1.ADR;type=HOME;type=pref:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
-		f.write("item1.X-ABADR:it\r\n")
-		f.write("item2.ADR;type=WORK:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
-		f.write("item3.URL;type=pref:http://www."+web+".it\r\n")
-		f.write("item3.X-ABLabel:_$!<HomePage>!$_\r\n")
+		f.write("TEL;type=CELL;type=VOICE;type=pref:"+tel[:3]+" "+tel[-7:]+"\r\n")
+		#f.write("EMAIL;type=INTERNET;type=HOME;type=pref:"+name+"@"+surname+".it\r\n")
+		#tel2 = str(generate_number())
+		#via = generate_street(1)[0]
+		#via2 = generate_street(1)[1]
+		#via3 = generate_street(1)[2]
+		#city = generate_street(1)[3]
+		#city2 = generate_street(1)[4]
+		#cap = str(generate_street(1)[5])
+		#naz = generate_street(1)[6]
+		#web = randomString(10)
+		#f.write("TEL;type=WORK;type=VOICE:"+tel2[:3]+" "+tel2[-7:]+"\r\n")
+		#f.write("item1.ADR;type=HOME;type=pref:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		#f.write("item1.X-ABADR:it\r\n")
+		#f.write("item2.ADR;type=WORK:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		#f.write("item3.URL;type=pref:http://www."+web+".it\r\n")
+		#f.write("item3.X-ABLabel:_$!<HomePage>!$_\r\n")
 		f.write("REV:2019-07-03T09:25:15Z\r\n")
 		f.write("END:VCARD\r\n")
 	f.close()
@@ -137,7 +138,8 @@ def contatti_ita_lower():
 
 def contatti_ita_upper():
 	f = open("contatti_ita_lower.vcf", "w+")
-	for i in range(0,1200):
+	num_contact = int(input("Quanti contatti vuoi creare: "))
+	for i in range(1,num_contact+1):
 		n1 = random.choice(char_ita_upper)
 		n2 = random.choice(char_ita_upper)
 		n3 = random.choice(char_ita_upper)
@@ -184,7 +186,8 @@ def contatti_ita_upper():
 
 def contatti_ita_mixed():
 	f = open("contatti_ita_lower.vcf", "w+")
-	for i in range(0,1200):
+	num_contact = int(input("Quanti contatti vuoi creare: "))
+	for i in range(1,num_contact+1):
 		n1 = random.choice(char_ita_upper)
 		n2 = random.choice(char_ita)
 		n3 = random.choice(char_ita)
@@ -231,7 +234,8 @@ def contatti_ita_mixed():
 
 def contatti_china():
 	f = open("contatti_ita_lower.vcf", "w+")
-	for i in range(0,1200):
+	num_contact = int(input("Quanti contatti vuoi creare: "))
+	for i in range(1,num_contact+1):
 		n1 = random.choice(char_china)
 		n2 = random.choice(char_china)
 		n3 = random.choice(char_china)
@@ -278,7 +282,8 @@ def contatti_china():
 
 def contatti_japan():
 	f = open("contatti_ita_lower.vcf", "w+")
-	for i in range(0,1200):
+	num_contact = int(input("Quanti contatti vuoi creare: "))
+	for i in range(1,num_contact+1):
 		n1 = random.choice(char_japan)
 		n2 = random.choice(char_japan)
 		n3 = random.choice(char_japan)
