@@ -5,7 +5,7 @@
 import random
 import string
 
-
+nomi_italiani = []
 char_ita = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 char_ita_upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 char_japan = ["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "が", "ぎ", "ぐ", "げ", "ご", "さ", "し", "す", "せ", "そ", "ざ", "じ", "ず", "ぜ", "ぞ", "た", "ち", "つ", "て", "と", "だ", "ぢ", "づ", "で", "ど", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "わ", "ゐ", "ゑ", "を"]
@@ -85,6 +85,46 @@ def generate_street(tipo):
 		naz = z+i+i+j+z+j+j+z
 
 	return via, via2, via3, city, city2, cap, naz
+
+
+def contatti_reali():
+	f = open("nomi_italiani.txt", "r")
+	for line in f:
+		line.replace("\n", "")
+		nomi_italiani.append(line)
+	f = open("contatti_ita_real.vcf", "w+")
+	num_contact = int(input("Quanti contatti vuoi creare: "))
+	for i in range(1, num_contact+1):
+		name = random.choice(nomi_italiani)
+		surname = random.choice(nomi_italiani)
+		name = name.capitalize()
+		surname = surname.capitalize()
+		f.write("BEGIN:VCARD\r\n")
+		f.write("VERSION:3.0\r\n")
+		tel = str(generate_number())
+		f.write("N:"+name+";"+surname+";;;\r\n")
+		f.write("FN:"+name+" "+surname+"\r\n")
+		f.write("TEL;type=CELL;type=VOICE;type=pref:"+tel[:3]+" "+tel[-7:]+"\r\n")
+		#f.write("EMAIL;type=INTERNET;type=HOME;type=pref:"+name+"@"+surname+".it\r\n")
+		#tel2 = str(generate_number())
+		#via = generate_street(1)[0]
+		#via2 = generate_street(1)[1]
+		#via3 = generate_street(1)[2]
+		#city = generate_street(1)[3]
+		#city2 = generate_street(1)[4]
+		#cap = str(generate_street(1)[5])
+		#naz = generate_street(1)[6]
+		#web = randomString(10)
+		#f.write("TEL;type=WORK;type=VOICE:"+tel2[:3]+" "+tel2[-7:]+"\r\n")
+		#f.write("item1.ADR;type=HOME;type=pref:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		#f.write("item1.X-ABADR:it\r\n")
+		#f.write("item2.ADR;type=WORK:;;"+via+" "+via2+";"+city+";"+city2+";"+cap+";"+city2+"\r\n")
+		#f.write("item3.URL;type=pref:http://www."+web+".it\r\n")
+		#f.write("item3.X-ABLabel:_$!<HomePage>!$_\r\n")
+		f.write("REV:2019-07-03T09:25:15Z\r\n")
+		f.write("END:VCARD\r\n")
+	f.close()
+	print("Creo i contatti reali.")
 
 
 def contatti_ita_lower():
@@ -359,7 +399,7 @@ def contatti_upper_latin():
 def menu():
 	while(1):
 		print("This program create a VCF file for testing.")
-		a = input("1 - Ita lower char\n2 - Ita upper char\n3 - Ita mixed\n4 - China\n5- Japan\n6 - Korea\n7- Special Char\n8 - Special Char Mixed\n9 - Upper Latin Char\nb - Exit\n")
+		a = input("1 - Ita lower char\n2 - Ita upper char\n3 - Ita mixed\n4 - China\n5- Japan\n6 - Korea\n7- Special Char\n8 - Special Char Mixed\n9 - Upper Latin Char\n10 - Contatti reali\nb - Exit\n")
 		if a == "1":
 			contatti_ita_lower()
 		elif a == "2":
@@ -378,6 +418,8 @@ def menu():
 			contatti_special_mixed()
 		elif a == "9":
 			contatti_upper_latin()
+		elif a == "10":
+			contatti_reali()
 		else:
 			print("Esco dal programma.")
 			exit()
