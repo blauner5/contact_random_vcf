@@ -90,8 +90,8 @@ def generate_street(tipo):
 def contatti_reali():
 	f = open("nomi_italiani.txt", "r")
 	for line in f:
-		line.replace("\n", "")
-		nomi_italiani.append(line)
+		a = line.replace("\n", "")
+		nomi_italiani.append(a)
 	f = open("contatti_ita_real.vcf", "w+")
 	num_contact = int(input("Quanti contatti vuoi creare: "))
 	for i in range(1, num_contact+1):
