@@ -139,7 +139,7 @@ def contatti_ita_lower():
 		n6 = random.choice(char_ita)
 		n7 = random.choice(char_ita)
 		n8 = random.choice(char_ita)
-		name = n1+n2+n3+n4+n5+n6+n7+n8
+		name = n1+n2+n3+n4+n5+n6+n7+n8 #si può fare anche n1*8
 		c1 = random.choice(char_ita)
 		c2 = random.choice(char_ita)
 		c3 = random.choice(char_ita)
